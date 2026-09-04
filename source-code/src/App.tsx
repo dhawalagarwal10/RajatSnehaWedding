@@ -371,7 +371,7 @@ export default function App() {
         <div className="rsvp-card reveal">
           {!submitted ? (
             <form
-              action="https://docs.google.com/forms/d/e/1FAIpQLSedoxH7ZawsI5Un9FN3ADKjmxkGNsrYsIaI7AnayLMLktqEzw/formResponse"
+              action="https://docs.google.com/forms/d/1Mrlndl-MjNYeSytNX-zgskPXQEdZbELfp7w4iFn8QNg/edit"
               method="POST"
               target="rsvp-response"
               onSubmit={() => setSubmitting(true)}
