@@ -121,7 +121,6 @@ export default function App() {
   const [playing, setPlaying] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [rsvpResponse, setRsvpResponse] = useState("");
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -371,7 +370,7 @@ export default function App() {
         <div className="rsvp-card reveal">
           {!submitted ? (
             <form
-              action="https://docs.google.com/forms/d/e/1FAIpQLSedoxH7ZawsI5Un9FN3ADKjmxkGNsrYsIaI7AnayLMLktqEzw/viewform?usp=header"
+              action="https://docs.google.com/forms/d/e/1FAIpQLSedoxH7ZawsI5Un9FN3ADKjmxkGNsrYsIaI7AnayLMLktqEzw/formResponse"
               method="POST"
               target="rsvp-response"
               onSubmit={() => setSubmitting(true)}
@@ -390,8 +389,7 @@ export default function App() {
                   <select
                     name="entry.1102999879"
                     required
-                    value={rsvpResponse}
-                    onChange={e => setRsvpResponse(e.target.value)}
+                    defaultValue=""
                   >
                     <option value="" disabled>
                       Choose your response
@@ -409,7 +407,7 @@ export default function App() {
                     type="number"
                     min="1"
                     max="20"
-                    required={rsvpResponse !== "Regretfully declines"}
+                    required
                     placeholder="1"
                   />
                 </label>
