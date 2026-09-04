@@ -121,6 +121,7 @@ export default function App() {
   const [playing, setPlaying] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [rsvpResponse, setRsvpResponse] = useState("");
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -389,7 +390,8 @@ export default function App() {
                   <select
                     name="entry.1102999879"
                     required
-                    defaultValue=""
+                    value={rsvpResponse}
+                    onChange={e => setRsvpResponse(e.target.value)}
                   >
                     <option value="" disabled>
                       Choose your response
@@ -407,7 +409,7 @@ export default function App() {
                     type="number"
                     min="1"
                     max="20"
-                    required
+                    required={rsvpResponse !== "Regretfully declines"}
                     placeholder="1"
                   />
                 </label>
